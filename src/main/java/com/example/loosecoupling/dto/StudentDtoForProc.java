@@ -16,4 +16,5 @@ public class StudentDtoForProc {
     private Integer age;
     private String phoneNumber;
     private String department;
+    private Integer year;
 }

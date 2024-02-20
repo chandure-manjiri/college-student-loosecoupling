@@ -13,4 +13,5 @@ public class StudentDtoForStudent {
     private Integer id;
     private String fullName;
     private String department;
+    private Integer year;
 }
