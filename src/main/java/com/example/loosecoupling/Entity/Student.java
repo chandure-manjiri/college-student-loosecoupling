@@ -23,6 +23,8 @@ public class Student{
     private String firstName;
     @Column(name = "lastname")
     private String lastName;
+    @Column(name = "department")
+    private String department;
     @Column(name = "gender")
     private String gender;
     @Column(name = "age")
