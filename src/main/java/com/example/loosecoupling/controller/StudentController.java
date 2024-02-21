@@ -4,6 +4,10 @@ package com.example.loosecoupling.controller;
 import com.example.loosecoupling.dto.StudentCreationDto;
 import com.example.loosecoupling.dto.StudentDto;
 import com.example.loosecoupling.exception.InvalidPersonTypeException;
+import com.example.loosecoupling.services.CollegeStudentsServices;
+import com.example.loosecoupling.services.ParentServices;
+import com.example.loosecoupling.services.ProfessorServices;
+import com.example.loosecoupling.services.StudentServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +20,7 @@ import java.util.List;
 @RequestMapping("/college")
 public class StudentController {
     //automatically dependancy injection create object for the StudentSerives
-     @Autowired
+    @Autowired
     private StudentServices studentServices;
 
     private CollegeStudentsServices collegeStudentsServices;
@@ -24,6 +28,8 @@ public class StudentController {
     private void setStudentServices(CollegeStudentsServices collegeStudentsServices){
         this.collegeStudentsServices = collegeStudentsServices;
     }
+
+    // loose coupling handled
     @GetMapping("/students")
     public ResponseEntity<List<StudentDto>> getStudents(@RequestParam(defaultValue = "person") String personType){
         List<StudentDto> studentDtoList = new ArrayList<>();
@@ -44,7 +50,7 @@ public class StudentController {
     }
 
     @PostMapping("/students")
-    public ResponseEntity<StudentDto> createStudent(@RequestMapping StudentCreationDto studentCreationDto){
+    public ResponseEntity<StudentDto> createStudent(@RequestBody StudentCreationDto studentCreationDto){
 
         StudentDto studentDto = this.studentServices.createStudent(studentCreationDto);
         return ResponseEntity.ok().body(studentDto);
