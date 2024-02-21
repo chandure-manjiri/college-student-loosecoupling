@@ -6,7 +6,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
-    <changeSet id="student table created" author="manjiri">
+    <changeSet id="student table created with change in phoneNumber to phone_number" author="manjiri">
         <createTable tableName="students">
             <column name="id" type="SERIAL">
                 <constraints primaryKey="true"/>
@@ -29,7 +29,7 @@
             <column name="age" type="int">
                 <constraints nullable="false" unique="false"/>
             </column>
-            <column name="phoneNumber" type="varchar(15)">
+            <column name="phone_number" type="varchar(15)">
                 <constraints nullable="false" unique="false"/>
             </column>
 

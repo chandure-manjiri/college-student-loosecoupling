@@ -9,12 +9,12 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudentDtoForProc extends StudentDto{
+public class StudentDtoForProc{
     private Integer id;
     private String fullName;
     private String gender;
     private Integer age;
-    private String phoneNumber;
+    private String phone_number;
     private String department;
     private Integer year;
 }

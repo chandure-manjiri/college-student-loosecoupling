@@ -21,7 +21,9 @@ public class StudentCreationDto {
     private Integer age;
     //@NotNull
    // @Pattern(regexp="^\\d{10}$", message = "Ivalid number, enter 10 digit only")
-    private String phoneNumber;
+    private String phone_number;
     //@NotNull
     private String department;
+
+    private Integer year;
 }

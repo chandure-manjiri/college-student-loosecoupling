@@ -31,7 +31,7 @@ public class Student{
     private String gender;
     @Column(name = "age")
     private Integer age;
-    @Column(name = "phoneNumber",length = 10)
-    private String phone;
+    @Column(name = "phone_number",length = 10)
+    private String phone_number;
 
 }

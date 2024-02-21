@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudentDtoForStudent extends StudentDto{
+public class StudentDtoForStudent{
     private Integer id;
     private String fullName;
     private String department;

@@ -10,10 +10,15 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class ParentServices implements CollegeStudentsServices<StudentDtoForParent>{
-    @Autowired
-    private StudentMapper studentMapper;
-    @Autowired
-    private StudentRepository studentRepository;
+
+    private final StudentMapper studentMapper;
+
+    final private StudentRepository studentRepository;
+
+    public ParentServices(StudentRepository studentRepository, StudentMapper studentMapper) {
+        this.studentRepository = studentRepository;
+        this.studentMapper = studentMapper;
+    }
     @Override
     public List<StudentDtoForParent> getStudents() {
         List<Student> studentList = this.studentRepository.findAll();
