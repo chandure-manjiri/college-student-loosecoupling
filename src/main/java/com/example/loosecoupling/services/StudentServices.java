@@ -4,6 +4,7 @@ import com.example.loosecoupling.Entity.Student;
 import com.example.loosecoupling.dto.StudentCreationDto;
 import com.example.loosecoupling.dto.StudentDto;
 import com.example.loosecoupling.dto.StudentDtoForStudent;
+import com.example.loosecoupling.mapstruct.StudentMapper;
 import com.example.loosecoupling.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,7 @@ public class StudentServices implements CollegeStudentsServices<StudentDtoForStu
     @Override
     public List<StudentDtoForStudent> getStudents() {
         List<Student> studentList = this.studentRepository.findAll();
-        return this.studentMapper.converToStudentDtoForStudent(studentList);
+        return this.studentMapper.converToStudentDtoForStudentList(studentList);
     }
 
     public StudentDto createStudent(StudentCreationDto studentCreationDto){
