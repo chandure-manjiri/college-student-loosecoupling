@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.sql.SQLOutput;
 import java.util.List;
-@Service
+@Service("student")
 public class StudentServices implements CollegeStudentsServices<StudentDtoForStudent>{
 
 
@@ -19,7 +19,7 @@ public class StudentServices implements CollegeStudentsServices<StudentDtoForStu
 
     private final StudentRepository studentRepository;
 
-
+    @Autowired
     public StudentServices(StudentRepository studentRepository, StudentMapper studentMapper) {
         this.studentRepository = studentRepository;
         this.studentMapper = studentMapper;

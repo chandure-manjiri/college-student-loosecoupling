@@ -8,14 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service
+@Service("professor")
 public class ProfessorServices implements CollegeStudentsServices<StudentDtoForProc>{
 
 
     private final StudentMapper studentMapper;
 
     private final StudentRepository studentRepository;
-
+    @Autowired
     public ProfessorServices(StudentRepository studentRepository, StudentMapper studentMapper) {
         this.studentRepository = studentRepository;
         this.studentMapper = studentMapper;

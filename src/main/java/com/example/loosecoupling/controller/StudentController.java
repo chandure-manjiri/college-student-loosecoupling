@@ -11,6 +11,7 @@ import com.example.loosecoupling.services.ParentServices;
 import com.example.loosecoupling.services.ProfessorServices;
 import com.example.loosecoupling.services.StudentServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,24 +26,26 @@ public class StudentController {
     @Autowired
     private StudentServices studentServices;
 
-    @Autowired
-    private StudentRepository studentRepository;
 
-    @Autowired
-    private StudentMapper studentMapper;
+    private final CollegeStudentsServices collegeStudentsServices;
 
-    private CollegeStudentsServices collegeStudentsServices;
+//    public StudentController(@Qualifier("parent") CollegeStudentsServices collegeStudentsServices) {
+//        this.collegeStudentsServices = collegeStudentsServices;
+//    }
+//    public StudentController(@Qualifier("student") CollegeStudentsServices collegeStudentsServices) {
+//        this.collegeStudentsServices = collegeStudentsServices;
+//    }
 
-    private void setStudentServices(CollegeStudentsServices collegeStudentsServices){
+    public StudentController(@Qualifier("professor") CollegeStudentsServices collegeStudentsServices) {
         this.collegeStudentsServices = collegeStudentsServices;
     }
+
+
 
     // loose coupling handled
     @GetMapping("/students")
     public ResponseEntity<List> getStudents(){
-        List studentDtoList = collegeStudentsServices.getAllList
-
-
+        List studentDtoList = collegeStudentsServices.getStudents();
         return ResponseEntity.ok().body(studentDtoList);
     }
 
