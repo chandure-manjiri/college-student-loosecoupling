@@ -23,11 +23,15 @@ public class Student{
     private String firstName;
     @Column(name = "lastname")
     private String lastName;
+    @Column(name = "department")
+    private String department;
+    @Column(name = "year")
+    private Integer year;
     @Column(name = "gender")
     private String gender;
     @Column(name = "age")
     private Integer age;
-    @Column(name = "phonenumber",length = 10)
-    private String phone;
+    @Column(name = "phone_number",length = 10)
+    private String phone_number;
 
 }
