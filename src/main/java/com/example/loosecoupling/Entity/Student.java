@@ -32,6 +32,6 @@ public class Student{
     @Column(name = "age")
     private Integer age;
     @Column(name = "phone_number",length = 10)
-    private String phone_number;
+    private String phoneNumber;
 
 }

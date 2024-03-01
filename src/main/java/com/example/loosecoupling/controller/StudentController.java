@@ -3,20 +3,14 @@ package com.example.loosecoupling.controller;
 
 import com.example.loosecoupling.dto.StudentCreationDto;
 import com.example.loosecoupling.dto.StudentDto;
-import com.example.loosecoupling.exception.InvalidPersonTypeException;
-import com.example.loosecoupling.mapstruct.StudentMapper;
-import com.example.loosecoupling.repository.StudentRepository;
 import com.example.loosecoupling.services.CollegeStudentsServices;
-import com.example.loosecoupling.services.ParentServices;
-import com.example.loosecoupling.services.ProfessorServices;
 import com.example.loosecoupling.services.StudentServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 @RestController
