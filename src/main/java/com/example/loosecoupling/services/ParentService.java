@@ -22,6 +22,6 @@ public class ParentService implements CollegeServices<ParentServStudentDto>{
     @Override
     public List<ParentServStudentDto> getStudents() {
         List<Student> studentList = this.studentRepository.findAll();
-        return studentMapper.convertToStudentDtoForParentList(studentList);
+        return studentMapper.toParentServStudentDtoList(studentList);
     }
 }

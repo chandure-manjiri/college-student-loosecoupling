@@ -10,28 +10,39 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface StudentMapper {
+
     @Mapping(target = "year", source = "year")
     @Mapping(target = "department", source = "department")
     @Mapping(target = "phoneNumber", source = "phoneNumber")
     @Mapping(target = "firstName", expression = "java(convertToFirstName(studentDto))")
     @Mapping(target = "lastName", expression = "java(convertToLastName(studentDto))")
-    Student converToEntity(StudentDto studentDto);
+    Student toEntity(StudentDto studentDto);
+    @Mapping(target = "id", source = "id")
     @Mapping(target = "year", source = "year")
     @Mapping(target = "department", source = "department")
     @Mapping(target = "phoneNumber", source = "phoneNumber")
     @Mapping(target = "fullName", expression = "java(convertToFullName(student.getFirstName(), student.getLastName()))")
-    StudentDto convertToStudentDto(Student student);
+    StudentDto toStudentDto(Student student);
 
-
+    @Mapping(target = "id", source = "id")
+    @Mapping(target = "department", source = "department")
+    @Mapping(target = "year", source = "year")
     @Mapping(target = "fullName", expression = "java(convertToFullName(student.getFirstName(), student.getLastName()))")
-    StudentServStudentDto convertToStudentDtoForStudent(Student student);
-    List<StudentServStudentDto> converToStudentDtoForStudentList(List<Student> studentList);
+    StudentServStudentDto toStudentServStudentDto(Student student);
+    List<StudentServStudentDto> toStudentServStudentDtoList(List<Student> studentList);
+    @Mapping(target = "id", source = "id")
+    @Mapping(target = "department", source = "department")
+    @Mapping(target = "year", source = "year")
+    @Mapping(target = "gender", source = "gender")
+    @Mapping(target = "age", source = "age")
+    @Mapping(target = "phoneNumber", source = "phoneNumber")
     @Mapping(target = "fullName", expression = "java(convertToFullName(student.getFirstName(), student.getLastName()))")
-    ProfessorServStudentDto convertToStudentDtoForProfessor(Student student);
-    List<ProfessorServStudentDto> converToStudentDtoForProcList(List<Student> studentList);
+    ProfessorServStudentDto toProfessorServStudentDto(Student student);
+    List<ProfessorServStudentDto> toProfessorServStudentDtoList(List<Student> studentList);
+    @Mapping(target = "department", source = "department")
     @Mapping(target = "fullName", expression = "java(convertToFullName(student.getFirstName(), student.getLastName()))")
-    ParentServStudentDto convertToStudentDtoForParent(Student student);
-    List<ParentServStudentDto> convertToStudentDtoForParentList(List<Student> studentList);
+    ParentServStudentDto toParentServStudentDto(Student student);
+    List<ParentServStudentDto> toParentServStudentDtoList(List<Student> studentList);
 
     @Named("toFirstName")
     default String convertToFirstName(StudentDto studentDto){

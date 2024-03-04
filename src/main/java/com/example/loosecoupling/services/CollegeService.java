@@ -22,10 +22,8 @@ public class CollegeService{
     }
 
     public StudentDto createStudent(StudentDto studentDto){
-        // System.out.println(studentCreationDto.getPhone_number());
-        Student student = this.studentMapper.converToEntity(studentDto);
-        //  System.out.println(student.getPhone_number());
+        Student student = this.studentMapper.toEntity(studentDto);
         this.studentRepository.save(student);
-        return this.studentMapper.convertToStudentDto(student);
+        return this.studentMapper.toStudentDto(student);
     }
 }

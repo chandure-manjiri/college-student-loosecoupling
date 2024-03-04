@@ -22,6 +22,6 @@ public class ProfessorService implements CollegeServices<ProfessorServStudentDto
     @Override
     public List<ProfessorServStudentDto> getStudents() {
         List<Student> studentList = this.studentRepository.findAll();
-        return studentMapper.converToStudentDtoForProcList(studentList);
+        return studentMapper.toProfessorServStudentDtoList(studentList);
     }
 }

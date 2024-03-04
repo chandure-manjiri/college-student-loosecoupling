@@ -19,12 +19,12 @@ public class StudentController {
     private CollegeService collegeService;
     private final CollegeServices collegeServices;
 
-//    public StudentController(@Qualifier("parent") CollegeServices collegeStudentsServices) {
-//        this.collegeServices = collegeStudentsServices;
-//    }
-    public StudentController(@Qualifier("student") CollegeServices collegeStudentsServices) {
+    public StudentController(@Qualifier("parent") CollegeServices collegeStudentsServices) {
         this.collegeServices = collegeStudentsServices;
     }
+//    public StudentController(@Qualifier("student") CollegeServices collegeStudentsServices) {
+//        this.collegeServices = collegeStudentsServices;
+//    }
 
 //    public StudentController(@Qualifier("professor") CollegeServices collegeStudentsServices) {
 //        this.collegeServices = collegeStudentsServices;

@@ -24,7 +24,7 @@ public class StudentService implements CollegeServices<StudentServStudentDto>{
     public List<StudentServStudentDto> getStudents() {
         List<Student> studentList = this.studentRepository.findAll();
 
-        return this.studentMapper.converToStudentDtoForStudentList(studentList);
+        return this.studentMapper.toStudentServStudentDtoList(studentList);
     }
 
 
