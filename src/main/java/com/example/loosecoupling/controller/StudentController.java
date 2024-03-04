@@ -1,7 +1,4 @@
 package com.example.loosecoupling.controller;
-
-
-import com.example.loosecoupling.dto.StudentCreationDto;
 import com.example.loosecoupling.dto.StudentDto;
 import com.example.loosecoupling.services.CollegeServices;
 import com.example.loosecoupling.services.StudentServices;
@@ -23,16 +20,16 @@ public class StudentController {
 
     private final CollegeServices collegeServices;
 
-//    public StudentController(@Qualifier("parent") CollegeStudentsServices collegeStudentsServices) {
-//        this.collegeStudentsServices = collegeStudentsServices;
+//    public StudentController(@Qualifier("parent") CollegeServices collegeStudentsServices) {
+//        this.collegeServices = collegeStudentsServices;
 //    }
-//    public StudentController(@Qualifier("student") CollegeStudentsServices collegeStudentsServices) {
-//        this.collegeStudentsServices = collegeStudentsServices;
-//    }
-
-    public StudentController(@Qualifier("professor") CollegeServices collegeStudentsServices) {
+    public StudentController(@Qualifier("student") CollegeServices collegeStudentsServices) {
         this.collegeServices = collegeStudentsServices;
     }
+
+//    public StudentController(@Qualifier("professor") CollegeServices collegeStudentsServices) {
+//        this.collegeServices = collegeStudentsServices;
+//    }
 
     // loose coupling handled
     @GetMapping("/students")
@@ -42,10 +39,10 @@ public class StudentController {
     }
 
     @PostMapping("/students")
-    public ResponseEntity<StudentDto> createStudent(@RequestBody StudentCreationDto studentCreationDto){
+    public ResponseEntity<StudentDto> createStudent(@RequestBody StudentDto studentDto){
 
-        StudentDto studentDto = this.studentServices.createStudent(studentCreationDto);
-        return ResponseEntity.ok().body(studentDto);
+        StudentDto studentDto1 = this.studentServices.createStudent(studentDto);
+        return ResponseEntity.ok().body(studentDto1);
 
     }
 

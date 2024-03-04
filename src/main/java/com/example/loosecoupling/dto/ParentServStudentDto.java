@@ -9,12 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudentDtoForProc{
-    private Integer id;
+public class ParentServStudentDto{
     private String fullName;
-    private String gender;
-    private Integer age;
-    private String phone_number;
     private String department;
-    private Integer year;
 }

@@ -1,7 +1,7 @@
 package com.example.loosecoupling.services;
 
 import com.example.loosecoupling.Entity.Student;
-import com.example.loosecoupling.dto.StudentDtoForParent;
+import com.example.loosecoupling.dto.ParentServStudentDto;
 import com.example.loosecoupling.mapstruct.StudentMapper;
 import com.example.loosecoupling.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service("parent")
-public class ParentService implements CollegeServices<StudentDtoForParent>{
+public class ParentService implements CollegeServices<ParentServStudentDto>{
 
     private final StudentMapper studentMapper;
 
@@ -20,8 +20,8 @@ public class ParentService implements CollegeServices<StudentDtoForParent>{
         this.studentMapper = studentMapper;
     }
     @Override
-    public List<StudentDtoForParent> getStudents() {
+    public List<ParentServStudentDto> getStudents() {
         List<Student> studentList = this.studentRepository.findAll();
-        return studentMapper.converToStudentDtoForParentList(studentList);
+        return studentMapper.convertToStudentDtoForParentList(studentList);
     }
 }

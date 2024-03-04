@@ -13,7 +13,7 @@ public class StudentDto {
     private String fullName;
     private String gender;
     private Integer age;
-    private String phone_number;
+    private String phoneNumber;
     private String department;
     private Integer year;
 }
