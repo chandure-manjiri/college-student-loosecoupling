@@ -1,7 +1,7 @@
 package com.example.loosecoupling.controller;
 import com.example.loosecoupling.dto.StudentDto;
+import com.example.loosecoupling.services.CollegeService;
 import com.example.loosecoupling.services.CollegeServices;
-import com.example.loosecoupling.services.StudentServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
@@ -14,10 +14,9 @@ import java.util.List;
 @RequestMapping("/colleges")
 public class StudentController {
     //automatically dependancy injection create object for the StudentSerives
+
     @Autowired
-    private StudentServices studentServices;
-
-
+    private CollegeService collegeService;
     private final CollegeServices collegeServices;
 
 //    public StudentController(@Qualifier("parent") CollegeServices collegeStudentsServices) {
@@ -41,7 +40,7 @@ public class StudentController {
     @PostMapping("/students")
     public ResponseEntity<StudentDto> createStudent(@RequestBody StudentDto studentDto){
 
-        StudentDto studentDto1 = this.studentServices.createStudent(studentDto);
+        StudentDto studentDto1 = this.collegeService.createStudent(studentDto);
         return ResponseEntity.ok().body(studentDto1);
 
     }
